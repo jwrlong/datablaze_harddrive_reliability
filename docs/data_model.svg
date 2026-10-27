@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="340" viewBox="0 0 920 340" role="img" aria-labelledby="title desc">
+  <title id="title">Data model from daily snapshot to spare plan</title>
+  <desc id="desc">One row per drive per day collapses to one row per drive, then to a model failure rate and a spare count.</desc>
+  <rect width="920" height="340" fill="#f6f4f1"/>
+  <g font-family="Palatino, Georgia, serif" fill="#1c1917">
+    <g>
+      <rect x="24" y="28" width="200" height="250" fill="#ffffff" stroke="#1f4e79"/>
+      <text x="36" y="52" font-size="14" font-weight="700">daily snapshot</text>
+      <text x="36" y="74" font-size="12" fill="#5c6b73">grain: serial + model + date</text>
+      <text x="36" y="108" font-size="13">date</text>
+      <text x="36" y="128" font-size="13">serial_number</text>
+      <text x="36" y="148" font-size="13">model</text>
+      <text x="36" y="168" font-size="13">capacity_bytes</text>
+      <text x="36" y="188" font-size="13">failure (0/1)</text>
+      <text x="36" y="208" font-size="13">smart_9_raw</text>
+      <text x="36" y="228" font-size="13">datacenter</text>
+      <text x="36" y="256" font-size="12" fill="#5c6b73">179,959,674 rows</text>
+    </g>
+    <g>
+      <rect x="280" y="28" width="200" height="250" fill="#ffffff" stroke="#1f4e79"/>
+      <text x="292" y="52" font-size="14" font-weight="700">drive</text>
+      <text x="292" y="74" font-size="12" fill="#5c6b73">grain: serial + model</text>
+      <text x="292" y="108" font-size="13">first_seen, last_seen</text>
+      <text x="292" y="128" font-size="13">drive_days</text>
+      <text x="292" y="148" font-size="13">failed (once)</text>
+      <text x="292" y="168" font-size="13">capacity_tb</text>
+      <text x="292" y="188" font-size="13">smart9 entry and exit</text>
+      <text x="292" y="208" font-size="13">manufacturer, media</text>
+      <text x="292" y="256" font-size="12" fill="#5c6b73">372,456 drives</text>
+    </g>
+    <g>
+      <rect x="536" y="28" width="170" height="250" fill="#ffffff" stroke="#1f4e79"/>
+      <text x="548" y="52" font-size="14" font-weight="700">model rate</text>
+      <text x="548" y="74" font-size="12" fill="#5c6b73">grain: model</text>
+      <text x="548" y="108" font-size="13">failures</text>
+      <text x="548" y="128" font-size="13">drive_days</text>
+      <text x="548" y="148" font-size="13">AFR and 95% CI</text>
+      <text x="548" y="168" font-size="13">decision label</text>
+      <text x="548" y="188" font-size="13">planning AFR</text>
+      <text x="548" y="256" font-size="12" fill="#5c6b73">31 models judged</text>
+    </g>
+    <g>
+      <rect x="742" y="28" width="154" height="250" fill="#ffffff" stroke="#1f4e79"/>
+      <text x="754" y="52" font-size="14" font-weight="700">spare plan</text>
+      <text x="754" y="74" font-size="12" fill="#5c6b73">grain: model buy</text>
+      <text x="754" y="108" font-size="13">deployed drives</text>
+      <text x="754" y="128" font-size="13">lead time</text>
+      <text x="754" y="148" font-size="13">spares at 99%</text>
+      <text x="754" y="168" font-size="13">spare cost</text>
+      <text x="754" y="256" font-size="12" fill="#5c6b73">100 PB mission</text>
+    </g>
+    <path d="M224 150 H268" stroke="#1f4e79" fill="none" stroke-width="1.5"/>
+    <path d="M260 144 L272 150 L260 156" fill="#1f4e79"/>
+    <path d="M480 150 H524" stroke="#1f4e79" fill="none" stroke-width="1.5"/>
+    <path d="M516 144 L528 150 L516 156" fill="#1f4e79"/>
+    <path d="M706 150 H730" stroke="#1f4e79" fill="none" stroke-width="1.5"/>
+    <path d="M722 144 L734 150 L722 156" fill="#1f4e79"/>
+    <text x="24" y="312" font-size="13" fill="#5c6b73">Age analysis uses the drive grain: entry age, exit age, and the failure flag. Days after the first failure are already gone.</text>
+  </g>
+</svg>

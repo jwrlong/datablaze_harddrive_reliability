@@ -1,0 +1,11 @@
+data/raw/**
+!data/raw/.gitkeep
+data/interim/**
+data/processed/**
+data/tmp/**
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+.DS_Store
+*.log

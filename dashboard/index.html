@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Drive reliability for the 2027 buy</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #1c1917;
+      --muted: #5c6b73;
+      --line: #e7e5e4;
+      --paper: #f6f4f1;
+      --card: #ffffff;
+      --blue: #1f4e79;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Palatino, "Palatino Linotype", "Iowan Old Style", Georgia, serif;
+    }
+    main {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 28px 22px 48px;
+    }
+    header p {
+      margin: 0;
+      color: var(--blue);
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 4px 0 6px;
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+    header .window {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .kpi {
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 12px 14px;
+    }
+    .kpi .label {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .kpi .value {
+      display: block;
+      margin-top: 4px;
+      font-size: 22px;
+      line-height: 1.2;
+      font-variant-numeric: tabular-nums;
+    }
+    .kpi .value.model {
+      font-size: 14px;
+      letter-spacing: -0.01em;
+    }
+    .kpi .note {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    section {
+      margin-top: 26px;
+    }
+    h2 {
+      margin: 0 0 6px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .answer {
+      margin: 0 0 10px;
+      font-size: 15px;
+      line-height: 1.4;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      background: white;
+      border: 1px solid var(--line);
+    }
+    .table-scroll {
+      overflow-x: auto;
+      background: white;
+      border: 1px solid var(--line);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      font-size: 13px;
+      font-variant-numeric: tabular-nums;
+    }
+    th, td {
+      text-align: left;
+      padding: 6px 8px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    th {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    footer {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+    @media (max-width: 800px) {
+      .kpis { grid-template-columns: 1fr 1fr; }
+      h1 { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <p>2027 capacity buy</p>
+    <h1>Drive reliability and spares</h1>
+    <p class="window">Backblaze Drive Stats, 2025-01-01 to 2026-06-30. Hard drives only. The site plan is fictional.</p>
+  </header>
+  <div class="kpis">
+    <div class="kpi">
+      <span class="label">Fleet annualized failure rate</span>
+      <span class="value">1.40%</span>
+      <span class="note">95% interval 1.37%–1.44%</span>
+    </div>
+    <div class="kpi">
+      <span class="label">Standardize on</span>
+      <span class="value model">WDC WUH722222ALE6L4</span>
+      <span class="note">Stop buying: 13 models</span>
+    </div>
+    <div class="kpi">
+      <span class="label">Age where risk rises</span>
+      <span class="value">4.0 yr</span>
+      <span class="note">Failure risk first doubles the age 1–3 hazard at 4.0 power-on years.</span>
+    </div>
+    <div class="kpi">
+      <span class="label">Spares for the 100 PB plan</span>
+      <span class="value">10</span>
+      <span class="note">7 WDC WUH722222ALE6L4 + 3 TOSHIBA MG11ACA24TE. 99% service, 42-day lead, $100,000 budget.</span>
+    </div>
+  </div>
+
+  <section>
+    <h2>Which models should we standardize on, and which should we stop buying?</h2>
+    <p class="answer">Standardize on WDC WUH722222ALE6L4. Stop buying 13 models. A stop is a current model of at least 8 TB whose lower 95% bound sits above the fleet rate, with at least 200 drives and 100,000 drive-days.</p>
+    <img src="../docs/figures/afr_by_model.png" alt="Annualized failure rate by model with 95 percent intervals. The dashed line is the fleet rate.">
+    <div class="table-scroll">
+    <table>
+      <caption class="answer">Models with enough evidence to judge. The interval is a 95% Garwood interval. Approved means the rate cleared the screen. A model with only a handful of failures is not a proven buy.</caption>
+      <thead>
+        <tr><th>Model</th><th>Maker</th><th>TB</th><th>AFR</th><th>95% interval</th><th>Drives</th><th>Decision</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>ST8000DM002</td><td>Seagate</td><td>8</td><td>1.78%</td><td>1.56%–2.04%</td><td>9,078</td><td>Stop buying</td></tr>
+<tr><td>ST8000NM0055</td><td>Seagate</td><td>8</td><td>2.22%</td><td>2.02%–2.44%</td><td>13,533</td><td>Stop buying</td></tr>
+<tr><td>TOSHIBA MG07ACA14TEY</td><td>Toshiba</td><td>14</td><td>2.25%</td><td>1.53%–3.20%</td><td>1,026</td><td>Stop buying</td></tr>
+<tr><td>WDC WUH721816ALE6L0</td><td>WDC</td><td>16</td><td>2.51%</td><td>2.07%–3.02%</td><td>3,039</td><td>Stop buying</td></tr>
+<tr><td>ST12000NM0008</td><td>Seagate</td><td>12</td><td>2.71%</td><td>2.52%–2.91%</td><td>19,145</td><td>Stop buying</td></tr>
+<tr><td>HGST HUH721212ALE604</td><td>HGST</td><td>12</td><td>2.80%</td><td>2.57%–3.04%</td><td>13,656</td><td>Stop buying</td></tr>
+<tr><td>HGST HUH728080ALE600</td><td>HGST</td><td>8</td><td>2.93%</td><td>2.08%–4.01%</td><td>1,084</td><td>Stop buying</td></tr>
+<tr><td>ST24000NM002H</td><td>Seagate</td><td>24</td><td>3.04%</td><td>2.71%–3.41%</td><td>9,900</td><td>Stop buying</td></tr>
+<tr><td>HGST HUH721212ALN604</td><td>HGST</td><td>12</td><td>4.54%</td><td>4.20%–4.89%</td><td>10,195</td><td>Stop buying</td></tr>
+<tr><td>ST12000NM0007</td><td>Seagate</td><td>12</td><td>5.06%</td><td>3.98%–6.34%</td><td>1,038</td><td>Stop buying</td></tr>
+<tr><td>TOSHIBA MG08ACA16TEY</td><td>Toshiba</td><td>16</td><td>5.14%</td><td>4.64%–5.68%</td><td>5,197</td><td>Stop buying</td></tr>
+<tr><td>ST14000NM0138</td><td>Seagate</td><td>14</td><td>5.72%</td><td>4.69%–6.91%</td><td>1,322</td><td>Stop buying</td></tr>
+<tr><td>ST10000NM0086</td><td>Seagate</td><td>10</td><td>6.08%</td><td>4.89%–7.47%</td><td>1,044</td><td>Stop buying</td></tr>
+<tr><td>ST8000NM000A</td><td>Seagate</td><td>8</td><td>0.27%</td><td>0.01%–1.53%</td><td>247</td><td>Approved</td></tr>
+<tr><td>ST12000NM000J</td><td>Seagate</td><td>12</td><td>0.34%</td><td>0.11%–0.79%</td><td>1,097</td><td>Approved</td></tr>
+<tr><td>WDC WUH722222ALE6L4</td><td>WDC</td><td>22</td><td>0.47%</td><td>0.42%–0.53%</td><td>45,893</td><td>Standardize</td></tr>
+<tr><td>TOSHIBA MG11ACA24TE</td><td>Toshiba</td><td>24</td><td>0.50%</td><td>0.31%–0.74%</td><td>9,630</td><td>Second source</td></tr>
+<tr><td>ST16000NM001G</td><td>Seagate</td><td>16</td><td>0.55%</td><td>0.49%–0.62%</td><td>35,363</td><td>Approved</td></tr>
+<tr><td>ST16000NM002J</td><td>Seagate</td><td>16</td><td>0.72%</td><td>0.23%–1.69%</td><td>468</td><td>Approved</td></tr>
+<tr><td>WDC WUH721414ALE6L4</td><td>WDC</td><td>14</td><td>0.78%</td><td>0.63%–0.94%</td><td>8,713</td><td>Approved</td></tr>
+<tr><td>TOSHIBA MG10ACA20TE</td><td>Toshiba</td><td>20</td><td>0.78%</td><td>0.67%–0.90%</td><td>25,395</td><td>Approved</td></tr>
+<tr><td>WDC WUH721816ALE6L4</td><td>WDC</td><td>16</td><td>0.81%</td><td>0.72%–0.90%</td><td>27,117</td><td>Approved</td></tr>
+<tr><td>WDC WUH722626ALE6L4</td><td>WDC</td><td>26</td><td>0.84%</td><td>0.49%–1.35%</td><td>7,217</td><td>Approved</td></tr>
+<tr><td>HGST HUH721212ALE600</td><td>HGST</td><td>12</td><td>0.85%</td><td>0.58%–1.19%</td><td>2,625</td><td>Approved</td></tr>
+<tr><td>TOSHIBA MG08ACA16TA</td><td>Toshiba</td><td>16</td><td>0.95%</td><td>0.87%–1.03%</td><td>40,411</td><td>Approved</td></tr>
+<tr><td>ST12000NM001G</td><td>Seagate</td><td>12</td><td>1.03%</td><td>0.90%–1.19%</td><td>13,347</td><td>Approved</td></tr>
+<tr><td>TOSHIBA MG07ACA14TA</td><td>Toshiba</td><td>14</td><td>1.26%</td><td>1.17%–1.36%</td><td>37,705</td><td>Approved</td></tr>
+<tr><td>ST14000NM001G</td><td>Seagate</td><td>14</td><td>1.28%</td><td>1.11%–1.47%</td><td>10,668</td><td>Approved</td></tr>
+<tr><td>TOSHIBA MG08ACA16TE</td><td>Toshiba</td><td>16</td><td>1.28%</td><td>1.06%–1.53%</td><td>6,439</td><td>Approved</td></tr>
+<tr><td>TOSHIBA MG09ACA16TE</td><td>Toshiba</td><td>16</td><td>1.30%</td><td>0.48%–2.82%</td><td>915</td><td>Approved</td></tr>
+<tr><td>ST14000NM000J</td><td>Seagate</td><td>14</td><td>1.48%</td><td>0.64%–2.91%</td><td>510</td><td>Approved</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>At what age does failure risk rise sharply?</h2>
+    <p class="answer">Failure risk first doubles the age 1–3 hazard at 4.0 power-on years. From age 1 to 3 the hazard is 0.68% per year. It is already higher at age 3, and the highest well-estimated band is 7.14% per year at 8.5 years.</p>
+    <img src="../docs/figures/hazard_by_age.png" alt="Failure hazard by half-year of power-on age, with 95 percent intervals and the age 1 to 3 baseline.">
+    <img src="../docs/figures/kaplan_meier.png" alt="Kaplan-Meier survival by power-on age for the fleet and the models in the decision, with left truncation.">
+  </section>
+
+  <section>
+    <h2>How many spares should we keep during replacement lead time?</h2>
+    <p class="answer">7 WDC WUH722222ALE6L4 + 3 TOSHIBA MG11ACA24TE. Counts are Poisson quantiles, recomputed at each fleet size, using the primary model’s planning failure rate.</p>
+    <img src="../docs/figures/spares_by_fleet_size.png" alt="Spare drives required for a 42-day lead time at 99 percent service, for fleet sizes from 500 to 10,000 of the primary model.">
+    <div class="table-scroll">
+    <table>
+      <caption class="answer">Single-model fleets of the primary drive. Expected shortfall is the terabytes lost during 42 days if the shelf is empty.</caption>
+      <thead>
+        <tr><th>Deployed drives</th><th>Expected failures in 42 days</th><th>Spares at 99%</th><th>Shortfall with zero spares</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>500</td><td>0.4</td><td>2</td><td>8 TB</td></tr>
+<tr><td>1,000</td><td>0.7</td><td>3</td><td>16 TB</td></tr>
+<tr><td>2,000</td><td>1.4</td><td>5</td><td>31 TB</td></tr>
+<tr><td>5,000</td><td>3.6</td><td>9</td><td>78 TB</td></tr>
+<tr><td>10,000</td><td>7.1</td><td>14</td><td>157 TB</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <footer>
+    <p>Questions on this page are the three questions in the brief. AFR = failures / drive-days × 365. Age is SMART 9 power-on time. A drive enters the risk set at the age it already had on its first snapshot. Source: Backblaze Drive Stats, downloaded 23 October 2026. Raw data is not redistributed. Planning mission 100 PB, lead time 42 days, service level 99%, spare budget $100,000. These describe Backblaze’s fleet and are not a causal claim about another workload.</p>
+  </footer>
+</main>
+</body>
+</html>

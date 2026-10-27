@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="280" viewBox="0 0 920 280" role="img" aria-labelledby="title desc">
+  <title id="title">Problem framing for the 2027 drive buy</title>
+  <desc id="desc">Infrastructure director, three budget decisions, failure rate and spare count, two-page memo and dashboard.</desc>
+  <rect width="920" height="280" fill="#f6f4f1"/>
+  <g font-family="Palatino, Georgia, serif" fill="#1c1917">
+    <g>
+      <rect x="24" y="36" width="200" height="208" rx="2" fill="#ffffff" stroke="#1f4e79"/>
+      <text x="40" y="64" font-size="12" fill="#1f4e79" letter-spacing="0.08em">STAKEHOLDER</text>
+      <text x="40" y="98" font-size="16">Infrastructure</text>
+      <text x="40" y="120" font-size="16">director</text>
+      <text x="40" y="160" font-size="13" fill="#5c6b73">Fictional. Buying</text>
+      <text x="40" y="178" font-size="13" fill="#5c6b73">next year's drives</text>
+      <text x="40" y="196" font-size="13" fill="#5c6b73">and setting the</text>
+      <text x="40" y="214" font-size="13" fill="#5c6b73">spare shelf.</text>
+    </g>
+    <g>
+      <rect x="248" y="36" width="220" height="208" rx="2" fill="#ffffff" stroke="#1f4e79"/>
+      <text x="264" y="64" font-size="12" fill="#1f4e79" letter-spacing="0.08em">DECISION</text>
+      <text x="264" y="98" font-size="14">Which models to buy</text>
+      <text x="264" y="122" font-size="14">and which to stop</text>
+      <text x="264" y="156" font-size="14">At what power-on age</text>
+      <text x="264" y="180" font-size="14">risk doubles</text>
+      <text x="264" y="214" font-size="14">How many spares</text>
+    </g>
+    <g>
+      <rect x="492" y="36" width="190" height="208" rx="2" fill="#ffffff" stroke="#1f4e79"/>
+      <text x="508" y="64" font-size="12" fill="#1f4e79" letter-spacing="0.08em">METRIC</text>
+      <text x="508" y="98" font-size="14">AFR with a 95%</text>
+      <text x="508" y="120" font-size="14">interval</text>
+      <text x="508" y="156" font-size="14">Hazard by</text>
+      <text x="508" y="178" font-size="14">power-on age</text>
+      <text x="508" y="214" font-size="14">Poisson spare</text>
+      <text x="508" y="236" font-size="14">count at 99%</text>
+    </g>
+    <g>
+      <rect x="706" y="36" width="190" height="208" rx="2" fill="#ffffff" stroke="#1f4e79"/>
+      <text x="722" y="64" font-size="12" fill="#1f4e79" letter-spacing="0.08em">DELIVERABLE</text>
+      <text x="722" y="98" font-size="14">Two-page memo</text>
+      <text x="722" y="132" font-size="14">Dashboard with</text>
+      <text x="722" y="154" font-size="14">one view per</text>
+      <text x="722" y="176" font-size="14">question</text>
+      <text x="722" y="214" font-size="13" fill="#5c6b73">SQL and Python</text>
+      <text x="722" y="232" font-size="13" fill="#5c6b73">to rebuild it</text>
+    </g>
+  </g>
+</svg>
